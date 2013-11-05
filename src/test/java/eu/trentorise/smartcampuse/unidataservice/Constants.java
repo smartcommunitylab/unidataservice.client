@@ -22,7 +22,7 @@ package eu.trentorise.smartcampuse.unidataservice;
 public class Constants {
 
 	static final String USER_AUTH_TOKEN = "4ad8587b-cdf4-4e5d-a56b-9c9b329b1d93";
-	static final String CLIENT_AUTH_TOKEN = "9092dda6-e240-48b2-9b61-da0de1fcb9d9";
+	static final String CLIENT_AUTH_TOKEN = "2110b7f1-4afa-4910-9032-af1a4a7e342c";
 
 	static final String AAC_URL = "http://localhost:8080/aac";
 	static final String PROFILE_SRV_URL = "http://localhost:8080/unidataservice";
