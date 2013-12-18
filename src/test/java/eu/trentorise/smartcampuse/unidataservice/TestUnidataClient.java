@@ -22,12 +22,15 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import eu.trentorise.smartcampus.unidataservice.CanteenService;
 import eu.trentorise.smartcampus.unidataservice.StudentInfoService;
 import eu.trentorise.smartcampus.unidataservice.UnidataServiceException;
 import eu.trentorise.smartcampus.unidataservice.UniversityPlannerService;
 import eu.trentorise.smartcampus.unidataservice.model.AdData;
+import eu.trentorise.smartcampus.unidataservice.model.CanteenOpening;
 import eu.trentorise.smartcampus.unidataservice.model.CdsData;
 import eu.trentorise.smartcampus.unidataservice.model.FacoltaData;
+import eu.trentorise.smartcampus.unidataservice.model.Menu;
 import eu.trentorise.smartcampus.unidataservice.model.OperaStudent;
 import eu.trentorise.smartcampus.unidataservice.model.PdsData;
 import eu.trentorise.smartcampus.unidataservice.model.StudentInfoData;
@@ -38,15 +41,25 @@ public class TestUnidataClient {
 
 	private StudentInfoService studentConnector;
 	private UniversityPlannerService UPConnector;
+	private CanteenService canteenConnector;
 
 	@Before
 	public void init() {
 		studentConnector = new StudentInfoService(Constants.PROFILE_SRV_URL);
 		UPConnector = new UniversityPlannerService(Constants.PROFILE_SRV_URL);
+		canteenConnector = new CanteenService(Constants.PROFILE_SRV_URL);
 	}
 
+	@Test
+	public void test() throws Exception {
+		List<Menu> result = canteenConnector.getMenu(Constants.CLIENT_AUTH_TOKEN, "2013-11-1", "2013-11-2");
+		System.out.println(result);
+		List<CanteenOpening> result2 = canteenConnector.getOpening(Constants.USER_AUTH_TOKEN);
+		System.out.println(result2);		
+	}
+	
 //	@Test
-	public void testStudent() throws Exception {
+	public void _testStudent() throws Exception {
 		Object result1, result2;
 		
 		result1 = studentConnector.getStudentData(Constants.USER_AUTH_TOKEN);
@@ -81,8 +94,8 @@ public class TestUnidataClient {
 		
 	}
 	
-	@Test
-	public void testUP() throws Exception {
+//	@Test
+	public void _testUP() throws Exception {
 		long start;
 		Object result;
 		
