@@ -2,14 +2,36 @@ package eu.trentorise.smartcampus.unidataservice.model;
 
 import java.util.List;
 
+/**
+ * Informations about a student Opera Universitaria card
+ */
 public class OperaStudent {
 
+	/**
+	 * Student Id for the Opera Universitaria DB
+	 */
 	private String idGiada;
 	private String name;
 	private String surname;
+	
+	/**
+	 * Id of the Opera Universitaria card
+	 */
 	private String idCard;
+	
+	/**
+	 * Money spent
+	 */
 	private String spent;
+	
+	/**
+	 * Money remaining
+	 */
 	private String remaining;
+	
+	/**
+	 * List of payments
+	 */
 	private List<OperaPayment> payments;
 	
 	public OperaStudent() {

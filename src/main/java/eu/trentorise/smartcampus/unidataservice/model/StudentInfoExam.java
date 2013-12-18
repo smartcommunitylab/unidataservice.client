@@ -1,12 +1,18 @@
 package eu.trentorise.smartcampus.unidataservice.model;
 
-
+/**
+ * Data about an exam
+ */
 public class StudentInfoExam {
 
 	private String id;
 	private String cod;
 	private String name;
 	private String result;
+	
+	/**
+	 * Lode (Distinction)
+	 */
 	private boolean lode;
 	private String weight;
 	private long date;

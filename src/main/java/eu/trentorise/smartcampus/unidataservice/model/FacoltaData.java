@@ -2,10 +2,19 @@ package eu.trentorise.smartcampus.unidataservice.model;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-
+/**
+ * Informations about a "Facolta'" (Faculty)
+ */
 public class FacoltaData {
 
+	/**
+	 * Id
+	 */
 	private String facId;
+	
+	/**
+	 * Description
+	 */
 	private String description;
 	
 	public FacoltaData() {

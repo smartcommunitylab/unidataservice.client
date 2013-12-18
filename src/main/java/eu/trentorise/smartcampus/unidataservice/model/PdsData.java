@@ -2,10 +2,19 @@ package eu.trentorise.smartcampus.unidataservice.model;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-
+/**
+ * Informations about a "Percorso di Studi" (Path of study)
+ */
 public class PdsData {
 
+	/**
+	 * Id
+	 */
 	private String pdsId;
+	
+	/**
+	 * Code
+	 */
 	private String pdsCod;
 	
 	public PdsData() {

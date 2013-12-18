@@ -5,12 +5,34 @@ import java.util.List;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+/**
+ * Informations about an "Attivita' Didattica" (University course)
+ */
 public class AdData {
 
+	/**
+	 * Id
+	 */
 	private String adId;
+	
+	/**
+	 * Code
+	 */
 	private String adcod;
+	
+	/**
+	 * Description
+	 */
 	private String description;
+	
+	/**
+	 * To be used together with domPart for course partitioning
+	 */
 	private List<String> fatPart;
+	
+	/**
+	 * To be used together with fatPart for course partitioning
+	 */	
 	private List<String> domPart;
 	
 	public AdData() {

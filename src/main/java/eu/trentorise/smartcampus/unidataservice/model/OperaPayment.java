@@ -1,14 +1,40 @@
 package eu.trentorise.smartcampus.unidataservice.model;
 
 
+/**
+ * Informations about a payment in the University canteens
+ */
 public class OperaPayment {
 
+	/**
+	 * Date of payment
+	 */
 	private String paymentDate;
+	
+	/**
+	 * Code of the canteen
+	 */
 	private String canteenCode;
+	
+	/**
+	 * Description of the canteen
+	 */
 	private String canteenDescription;
 	private String productDescription;
+	
+	/**
+	 * Type of the product, for example "SNACK 1"
+	 */
 	private String productType;
+	
+	/**
+	 * Total paid
+	 */
 	private String totalPayment;
+	
+	/**
+	 * Price of the product
+	 */
 	private String productPrice;
 	
 	public OperaPayment() {

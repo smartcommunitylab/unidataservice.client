@@ -2,11 +2,25 @@ package eu.trentorise.smartcampus.unidataservice.model;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+/**
+ * Time slot for a course
+ */
 public class TimeTableData {
 
+	/**
+	 * Type of event, for example "Lezione"
+	 */
 	private String type;
 	private String date;
+	
+	/**
+	 * Start hour
+	 */
 	private String from;
+	
+	/**
+	 * End hour
+	 */
 	private String to;
 	private String room;
 	private String teacher;

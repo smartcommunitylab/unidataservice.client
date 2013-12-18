@@ -5,14 +5,44 @@ import java.util.List;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+/**
+ * Informations about a "Corso di studi" (Course of study)
+ */
 public class CdsData {
 
+	/**
+	 * Id
+	 */
 	private String cdsId;
+	
+	/**
+	 * Code
+	 */
 	private String cdsCod;
+	
+	/**
+	 * Faculty Id
+	 */
 	private String facId;
+	
+	/**
+	 * Description
+	 */
 	private String description;
+	
+	/**
+	 * Duration (in years)
+	 */
 	private String durata;
+	
+	/**
+	 * Anno di Ordinamento (University regulation year)
+	 */
 	private String aaOrd;
+	
+	/**
+	 * List of paths of study
+	 */
 	private List<PdsData> pds;
 	
 	public CdsData() {

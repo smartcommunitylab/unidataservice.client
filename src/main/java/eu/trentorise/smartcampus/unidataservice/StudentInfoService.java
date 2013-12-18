@@ -7,6 +7,9 @@ import eu.trentorise.smartcampus.unidataservice.model.OperaStudent;
 import eu.trentorise.smartcampus.unidataservice.model.StudentInfoData;
 import eu.trentorise.smartcampus.unidataservice.model.StudentInfoExams;
 
+/**
+ * Class to obtain anagraphic information about students, their exams and their canteen payments.
+ */
 public class StudentInfoService {
 
 	private String unidataServiceURL;
@@ -21,6 +24,13 @@ public class StudentInfoService {
 			unidataServiceURL += '/';
 	}
 
+	/**
+	 * Retrieve anagraphic data about a student
+	 * @param token a user token
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
 	public StudentInfoData getStudentData(String token) throws SecurityException, UnidataServiceException {
 		try {
 			String json = RemoteConnector.getJSON(unidataServiceURL, GET_STUDENT_DATA, token);
@@ -30,6 +40,14 @@ public class StudentInfoService {
 		}
 	}
 	
+	/**
+	 * Retrieve anagraphic data about a student
+	 * @param token a client token
+	 * @param userId the id of the student
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
 	public StudentInfoData getStudentData(String token, String userId) throws SecurityException, UnidataServiceException {
 		try {
 			String json = RemoteConnector.getJSON(unidataServiceURL, GET_STUDENT_DATA + userId, token);
@@ -39,6 +57,13 @@ public class StudentInfoService {
 		}
 	}	
 	
+	/**
+	 * Retrieve the exams of a student 
+	 * @param token a user token
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
 	public StudentInfoExams getStudentExams(String token) throws SecurityException, UnidataServiceException {
 		try {
 			String json = RemoteConnector.getJSON(unidataServiceURL, GET_STUDENT_EXAMS, token);
@@ -48,6 +73,14 @@ public class StudentInfoService {
 		}
 	}	
 	
+	/**
+	 * Retrieve the exams of a student 
+	 * @param token a client token
+	 * @param userId the id of the student
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
 	public StudentInfoExams getStudentExams(String token, String userId) throws SecurityException, UnidataServiceException {
 		try {
 			String json = RemoteConnector.getJSON(unidataServiceURL, GET_STUDENT_EXAMS + userId, token);
@@ -57,6 +90,13 @@ public class StudentInfoService {
 		}
 	}		
 	
+	/**
+	 * Return data about the OU card of a student
+	 * @param token a user token
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
 	public OperaStudent getOperaCard(String token) throws SecurityException, UnidataServiceException {
 		try {
 			String json = RemoteConnector.getJSON(unidataServiceURL, GET_OPERACARD, token);
@@ -66,6 +106,14 @@ public class StudentInfoService {
 		}
 	}		
 	
+	/**
+	 * Return data about the OU card of a student
+	 * @param token a client token
+	 * @param userId the id of the student
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
 	public OperaStudent getOperaCard(String token, String userId) throws SecurityException, UnidataServiceException {
 		try {
 			String json = RemoteConnector.getJSON(unidataServiceURL, GET_OPERACARD + userId, token);

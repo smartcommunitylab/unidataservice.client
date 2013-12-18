@@ -2,9 +2,19 @@ package eu.trentorise.smartcampus.unidataservice.model;
 
 import java.util.List;
 
+/**
+ * List of exams of a student
+ */
 public class StudentInfoExams {
 
+	/**
+	 * Student Id for the University DB
+	 */
 	private String idAda;
+	
+	/**
+	 * List of exams
+	 */
 	private List<StudentInfoExam> exams;
 	
 	public StudentInfoExams() {

@@ -1,6 +1,8 @@
 package eu.trentorise.smartcampus.unidataservice.model;
 
-
+/**
+ * Data about a student
+ */
 public class StudentInfoData {
 
 	private String fiscalCode;
@@ -10,6 +12,10 @@ public class StudentInfoData {
 	private String nation;
 	private String academicYear;
 	private String supplementaryYears;
+	
+	/**
+	 * "Crediti Formativi Universitari"
+	 */
 	private String cfu;
 	private String cfuTotal;
 	private String marksNumber;
@@ -19,6 +25,10 @@ public class StudentInfoData {
 	private String phone;
 	private String mobile;
 	private String address;
+	
+	/**
+	 * "Corso di Studi"
+	 */
 	private String cds;
 
 	public StudentInfoData() {
