@@ -52,8 +52,10 @@ public class TestUnidataClient {
 
 	@Test
 	public void test() throws Exception {
-		List<Menu> result = canteenConnector.getMenu(Constants.CLIENT_AUTH_TOKEN, "2013-11-1", "2013-11-2");
-		System.out.println(result);
+		List<Menu> result = canteenConnector.getMenu(Constants.CLIENT_AUTH_TOKEN, "2013-11-01", "2013-11-02");
+		for (Menu menu: result) {
+			System.out.println(menu.getDate());
+		}
 		List<CanteenOpening> result2 = canteenConnector.getOpening(Constants.USER_AUTH_TOKEN);
 		System.out.println(result2);		
 	}
