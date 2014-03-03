@@ -6,6 +6,7 @@ import eu.trentorise.smartcampus.network.JsonUtils;
 import eu.trentorise.smartcampus.network.RemoteConnector;
 import eu.trentorise.smartcampus.network.RemoteException;
 import eu.trentorise.smartcampus.unidataservice.model.AdData;
+import eu.trentorise.smartcampus.unidataservice.model.CalendarCdsData;
 import eu.trentorise.smartcampus.unidataservice.model.CdsData;
 import eu.trentorise.smartcampus.unidataservice.model.FacoltaData;
 import eu.trentorise.smartcampus.unidataservice.model.OperaStudent;
@@ -26,6 +27,7 @@ public class UniversityPlannerService {
 	private final static String GET_CDS_DATA = "getcds/";
 	private final static String GET_AD_DATA = "getad/";
 	private final static String GET_TIMETABLE_DATA = "gettimetable/";
+	private final static String GET_CDS_CALENDAR = "getcdscalendar/";
 
 	public UniversityPlannerService(String serverURL) {
 		this.unidataServiceURL = serverURL;
@@ -104,6 +106,24 @@ public class UniversityPlannerService {
 		try {
 			String json = RemoteConnector.getJSON(unidataServiceURL, GET_TIMETABLE_DATA + cdsCod + "/" + aaOrd + "/" + aaOff + "/" + pdsId + "/" + pdsCod + "/" + adCod + "/" + domCod + "/" + fatCod, token);
 			return JsonUtils.toObjectList(json, TimeTableData.class);
+		} catch (RemoteException e) {
+			throw new UnidataServiceException(e);
+		}
+	}	
+	
+	/**
+	 * Return a weekly timetable for a a particular "Corso di Studio'" and year of course
+	 * @param token a client token
+	 * @param cdsId the "Corso di Studi" id
+	 * @param year the year of course
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
+	public List<CalendarCdsData> getCdsCalendar (String token, String cdsId, String year) throws SecurityException, UnidataServiceException {
+		try {
+			String json = RemoteConnector.getJSON(unidataServiceURL, GET_CDS_CALENDAR + cdsId + "/" + year, token);
+			return JsonUtils.toObjectList(json, CalendarCdsData.class);
 		} catch (RemoteException e) {
 			throw new UnidataServiceException(e);
 		}
