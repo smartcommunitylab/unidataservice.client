@@ -28,6 +28,8 @@ public class UniversityPlannerService {
 	private final static String GET_AD_DATA = "getad/";
 	private final static String GET_TIMETABLE_DATA = "gettimetable/";
 	private final static String GET_CDS_CALENDAR = "getcdscalendar/";
+	private final static String GET_FULL_CDS_CALENDAR = "getfullcdscalendar/";
+	private final static String GET_FULL_AD_CALENDAR = "getfulladcalendar/";
 
 	public UniversityPlannerService(String serverURL) {
 		this.unidataServiceURL = serverURL;
@@ -120,6 +122,7 @@ public class UniversityPlannerService {
 	 * @throws SecurityException
 	 * @throws UnidataServiceException
 	 */
+	@Deprecated
 	public List<CalendarCdsData> getCdsCalendar (String token, String cdsId, String year) throws SecurityException, UnidataServiceException {
 		try {
 			String json = RemoteConnector.getJSON(unidataServiceURL, GET_CDS_CALENDAR + cdsId + "/" + year, token);
@@ -128,6 +131,80 @@ public class UniversityPlannerService {
 			throw new UnidataServiceException(e);
 		}
 	}	
+	
+	/**
+	 * 
+	 * @param token a client token
+	 * @param cdsId the "Corso di Studi" id
+	 * @param year the year of course
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
+	public List<CalendarCdsData> getFullCdsCalendar (String token, String cdsId, String year) throws SecurityException, UnidataServiceException {
+		try {
+			String json = RemoteConnector.getJSON(unidataServiceURL, GET_FULL_CDS_CALENDAR + cdsId + "/" + year, token);
+			return JsonUtils.toObjectList(json, CalendarCdsData.class);
+		} catch (RemoteException e) {
+			throw new UnidataServiceException(e);
+		}
+	}		
+	
+	/**
+	 * 
+	 * @param token a client token
+	 * @param cdsId the "Corso di Studi" id
+	 * @param year the year of course
+	 * @param from starting date in milliseconds
+	 * @param to ending date in milliseconds
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
+	public List<CalendarCdsData> getFullCdsCalendar (String token, String cdsId, String year, long from, long to) throws SecurityException, UnidataServiceException {
+		try {
+			String json = RemoteConnector.getJSON(unidataServiceURL, GET_FULL_CDS_CALENDAR + cdsId + "/" + year + "/" + from + "/" + to, token);
+			return JsonUtils.toObjectList(json, CalendarCdsData.class);
+		} catch (RemoteException e) {
+			throw new UnidataServiceException(e);
+		}
+	}	
+	
+	/**
+	 * 
+	 * @param token a client token
+	 * @param adId the "Attivita' didattica" id
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
+	public List<CalendarCdsData> getFullAdCalendar (String token, String adId) throws SecurityException, UnidataServiceException {
+		try {
+			String json = RemoteConnector.getJSON(unidataServiceURL, GET_FULL_AD_CALENDAR + adId, token);
+			return JsonUtils.toObjectList(json, CalendarCdsData.class);
+		} catch (RemoteException e) {
+			throw new UnidataServiceException(e);
+		}
+	}			
+	
+	/**
+	 * 
+	 * @param token a client token
+	 * @param adId the "Attivita' didattica" id
+	 * @param from starting date in milliseconds
+	 * @param to ending date in milliseconds
+	 * @return
+	 * @throws SecurityException
+	 * @throws UnidataServiceException
+	 */
+	public List<CalendarCdsData> getFullAdCalendar (String token, String adId, long from, long to) throws SecurityException, UnidataServiceException {
+		try {
+			String json = RemoteConnector.getJSON(unidataServiceURL, GET_FULL_AD_CALENDAR + adId + "/" + from + "/" + to, token);
+			return JsonUtils.toObjectList(json, CalendarCdsData.class);
+		} catch (RemoteException e) {
+			throw new UnidataServiceException(e);
+		}
+	}		
 	
 	
 }
